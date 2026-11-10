@@ -12,6 +12,10 @@ Do these checks in this order before you report a change to `app/` as complete:
 | 401 "Select a user from the DevUI panel"        | No user in the session — switch users and country in the floating panel (`app/components/dev-ui.tsx`). |
 | `tsc` reports every `./+types/*` import missing | Typegen has not run. Use `npm run typecheck`, which runs `react-router typegen` first.                 |
 
+## Domain language
+
+Use the terms in `GLOSSARY.md` everywhere — code, schema, UI copy, emails, issues. Each term's `_Avoid_` list is banned. Rules and code names behind the terms: `docs/domain/` (refunds: `docs/domain/refunds.md`).
+
 ## Agent skills
 
 ### Issue tracker
