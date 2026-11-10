@@ -71,6 +71,20 @@
       "when": 1790083397130,
       "tag": "0009_clear_professor_monster",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "6",
+      "when": 1794291264738,
+      "tag": "0010_mighty_luke_cage",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "6",
+      "when": 1794293283400,
+      "tag": "0011_small_mister_fear",
+      "breakpoints": true
     }
   ]
 }

@@ -13,6 +13,7 @@ import { data } from "react-router";
 import { db } from "~/db";
 import { purchases, coupons, courses, enrollments } from "~/db/schema";
 import { eq, and } from "drizzle-orm";
+import { hasOpenRefundRequest } from "~/lib/refunds.server";
 
 function getCourseById(id: number) {
   return db.select().from(courses).where(eq(courses.id, id)).get();
@@ -78,6 +79,16 @@ function redeemCoupon(
       ok: false,
       error:
         "This coupon can only be redeemed from the same country as the purchaser",
+    };
+  }
+
+  // While the team licence has an open refund request, its unclaimed seats
+  // are frozen: approving the request would make them unclaimable for good.
+  if (hasOpenRefundRequest(coupon.purchaseId)) {
+    return {
+      ok: false,
+      error:
+        "This seat cannot be claimed while its team licence has an open refund request",
     };
   }
 
